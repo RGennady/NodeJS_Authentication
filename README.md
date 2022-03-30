@@ -1,4 +1,4 @@
 # NodeJS_Authentication
 
-Простейшая аутентификация на  Node JS, используется jwt и mysql
+Аутентификация и авторизация на  Node JS, используется jwt и mysql
 в файле config.js параметры БД
