@@ -35,7 +35,8 @@ router.use(function(req,res,next) {
       catch(err){
          res.status(403).json({message: 'Токен недействителен', status:403})
        }
-    }else{
+    }
+    else{
          res.status(401).json({message: 'Пожалуйста, отправьте токен ', status:401});
     }
   }
