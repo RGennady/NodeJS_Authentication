@@ -1,6 +1,5 @@
 
 var express=require("express");
-var bcrypt = require('bcryptjs');
 var jwtDecode = require('jwt-decode');
 var bodyParser=require('body-parser');
 var jwt= require("jsonwebtoken");
@@ -27,13 +26,13 @@ router.use(function(req,res,next) {
     var token=req.headers.token;
     if(token){
       try{
-          jwt.verify(token,process.env.SECRET_KEY,function(err,ress){
-          let decoded = jwtDecode(token);
-          next();
-        })
+            jwt.verify(token,process.env.SECRET_KEY,function(err,ress){
+              let decoded = jwtDecode(token);
+              next();
+            });
       }
       catch(err){
-         res.status(403).json({'status':403, 'message': 'Токен недействителен'})
+         res.status(403).json({'status':403, 'message': 'Токен недействителен'});
        }
     }
     else{
@@ -43,7 +42,7 @@ router.use(function(req,res,next) {
   catch(err){
     console.log(err);
     res.status(400).json({'status':400,'message':'Сервер не понимает запрос из-за неверного синтаксиса'});
- } 
+  } 
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 router.post('/test', async(req, res) =>{
